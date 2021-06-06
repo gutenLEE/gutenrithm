@@ -12,3 +12,11 @@
               |  $$$$$$/                                                          
                \______/                                                           
 ```
+
+
+Easy-Collection
+https://leetcode.com/explore/interview/card/top-interview-questions-easy/
+
+
+parallel
+https://leetcode.com/problemset/all/?search=parallel
