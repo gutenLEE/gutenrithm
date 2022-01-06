@@ -8,23 +8,13 @@ import static java.util.stream.Collectors.groupingBy;
 
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        long count = 
-                Arrays.stream(nums)
-                    .boxed()
-                    .collect(groupingBy(r -> r, Collectors.toList()))
-                    .values()
-                    .stream().map(List::size)
-                    .filter(isDuplicated)
-                    .map(accumulateDuplicatedListCount)
-                    .count();
-        return count > 0;
+        boolean present = 
+            Arrays.stream(nums).boxed()
+                .collect(groupingBy(r -> r, Collectors.toList()))
+                .values()
+                .stream()
+                .anyMatch(s -> s.size() > 1);
+        return present;
     }
-    
-    static Predicate<Integer> isDuplicated = (listSize) -> {
-        return listSize > 1;
-    };
 
-    static Function<Integer, Long> accumulateDuplicatedListCount = (listSize) -> {
-        return 1L;
-    };
 }
