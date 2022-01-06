@@ -8,6 +8,7 @@ import static java.util.stream.Collectors.groupingBy;
 
 class Solution {
     public boolean containsDuplicate(int[] nums) {
+        
         boolean present = 
             Arrays.stream(nums).boxed()
                 .collect(groupingBy(r -> r, Collectors.toList()))
