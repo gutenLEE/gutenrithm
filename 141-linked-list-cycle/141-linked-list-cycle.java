@@ -13,14 +13,15 @@ public class Solution {
     public boolean hasCycle(ListNode head) {
         // 1. fast, slow
         // 2. to mark a node
+        if( head == null ) return false;
         
-        if(head == null) return false;
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if ( slow == fast ) return true;
+        while(head.next != null) {
+            head.val = Integer.MAX_VALUE;
+            if(head.next.val == Integer.MAX_VALUE) {
+                return true;
+            } else {
+                head = head.next;
+            }
         }
         return false;
     }
