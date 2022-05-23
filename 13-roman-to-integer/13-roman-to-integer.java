@@ -15,11 +15,10 @@ class Solution {
         for (int i = 0; i < split.length; i++) {
             if (i == passIndex)
                 continue;
-            if (i + 1 != split.length && map.get(split[i]) < map.get(split[i + 1])) {
-                Integer a = map.get(split[i]);
-                Integer b = map.get(split[i + 1]);
-                sum += b - a;
-                passIndex = i + 1;
+            int nextIndex = i + 1;
+            if (nextIndex != split.length && map.get(split[i]) < map.get(split[nextIndex])) {
+                sum += map.get(split[nextIndex]) - map.get(split[i]);
+                passIndex = nextIndex;
             } else {
                 sum += map.get(split[i]);
             }
