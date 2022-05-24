@@ -11,18 +11,14 @@ class Solution {
         
         String[] split = s.split("");
         int sum = 0;
-        int passIndex = Integer.MIN_VALUE;
-        for (int i = 0; i < split.length; i++) {
-            if (i == passIndex)
-                continue;
+        for (int i = 0; i < split.length - 1; i++) {
             int nextIndex = i + 1;
-            if (nextIndex != split.length && map.get(split[i]) < map.get(split[nextIndex])) {
-                sum += map.get(split[nextIndex]) - map.get(split[i]);
-                passIndex = nextIndex;
+            if (map.get(split[i]) < map.get(split[nextIndex])) {
+                sum -= map.get(split[i]);
             } else {
                 sum += map.get(split[i]);
             }
         }
-        return sum;
+        return sum + map.get(split[s.length() - 1]);
     }
 }
