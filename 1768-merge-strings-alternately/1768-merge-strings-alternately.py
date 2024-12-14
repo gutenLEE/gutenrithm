@@ -4,7 +4,6 @@ class Solution:
         # append each letter
 
         min_length = min(len(word1), len(word2))
-        max_length = max(len(word1), len(word2))
 
         answer = ''
         for i in range(0, min_length):
