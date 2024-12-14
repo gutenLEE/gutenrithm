@@ -18,3 +18,6 @@ class Solution:
         return answer
 
         
+"""
+위 풀이 방식은 문자열에 새로운 문자를 append할 때마다 문자 복사 비용이 발생한다.
+"""
